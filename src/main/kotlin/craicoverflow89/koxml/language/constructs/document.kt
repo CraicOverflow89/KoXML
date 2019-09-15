@@ -3,12 +3,20 @@ package craicoverflow89.koxml.language.constructs
 class KoXMLAttribute(private val key: String, private val value: String)
 {
 
+    fun getKey() = key
+
+    fun getValue() = value
+
     override fun toString() = "$key: $value"
 
 }
 
 class KoXMLAttributeList(private val list: ArrayList<KoXMLAttribute>)
 {
+
+    fun toMap() = HashMap<String, String>().apply {
+        list.forEach {this[it.getKey()] = it.getValue()}
+    }
 
     override fun toString() = "[${list.joinToString(", ")}]"
 
@@ -21,6 +29,8 @@ class KoXMLDocument(private val root: KoXMLNode, private val attributes: KoXMLAt
         add(document.toString())
         addAll(root.debug(0))
     }.joinToString("\n")})
+
+    fun getAttributes() = attributes.toMap()
 
     fun getRoot() = root
 
@@ -61,6 +71,8 @@ abstract class KoXMLNode(private val type: String, protected val tag: String, pr
 
     fun getChildren() = children
 
+    fun getAttributes(): HashMap<String, String> = attributes?.toMap() ?: hashMapOf()
+
     override fun toString() = ArrayList<String>().apply {
         add(type)
         add("<$tag>")
@@ -74,6 +86,8 @@ class KoXMLSingle(tag: String, attributes: KoXMLAttributeList): KoXMLNode("Singl
 
 class KoXMLValue(tag: String, private val value: String): KoXMLNode("Value", tag)
 {
+
+    fun getValue() = value
 
     override fun toString() = ArrayList<String>().apply {
         add("Value")

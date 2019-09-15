@@ -16,5 +16,7 @@ fun main (args: Array<String>)
     val document = parser.document().result
 
     // Debug Output
-    document.debug()
+    println(document.getAttributes())
+    println(document.getRoot().getAttributes())
+    println(document.getRoot().getChildren())
 }
