@@ -3,7 +3,7 @@ KoXML Project
 
 Lightweight XML parser written in Kotlin.
 
-**Usage**
+### Usage
 
 You can parse a `File` or simply a `String` using the `KoXML` class.
 
