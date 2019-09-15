@@ -29,6 +29,7 @@ class KoXMLDocument(private val root: KoXMLNode, private val attributes: KoXMLAt
 }
 
 class KoXMLGroup(tag: String, attributes: KoXMLAttributeList, children: ArrayList<KoXMLNode>): KoXMLNode("Group", tag, attributes, children)
+// NOTE: would it be best to convert multiple KoXMLValue objects with shared tag into a list of values?
 
 abstract class KoXMLNode(private val type: String, protected val tag: String, private val attributes: KoXMLAttributeList? = null, private val children: ArrayList<KoXMLNode>? = null)
 {
@@ -49,12 +50,9 @@ abstract class KoXMLNode(private val type: String, protected val tag: String, pr
         //       we actually need to use something like List<Boolean> for each level of nodes
 
         // Iterate Children
-        if(children != null)
+        if(children != null) for(child in children.withIndex())
         {
-            for(child in children.withIndex())
-            {
-                result.addAll(child.value.debug(indent + 1, child.index >= children.size - 1, lastItem))
-            }
+            result.addAll(child.value.debug(indent + 1, child.index >= children.size - 1, lastItem))
         }
 
         // Return Result
