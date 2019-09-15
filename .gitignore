@@ -5,6 +5,7 @@ gradle
 gradlew
 gradlew.bat
 out
+src/main/kotlin/craicoverflow89/koxml/test.kt
 src/main/kotlin/craicoverflow89/koxml/language/KoXML.interp
 src/main/kotlin/craicoverflow89/koxml/language/KoXML.tokens
 src/main/kotlin/craicoverflow89/koxml/language/KoXMLBaseListener.java
@@ -13,3 +14,4 @@ src/main/kotlin/craicoverflow89/koxml/language/KoXMLLexer.java
 src/main/kotlin/craicoverflow89/koxml/language/KoXMLLexer.tokens
 src/main/kotlin/craicoverflow89/koxml/language/KoXMLListener.java
 src/main/kotlin/craicoverflow89/koxml/language/KoXMLParser.java
+src/main/resources/input.xml
