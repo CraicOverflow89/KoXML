@@ -41,7 +41,7 @@ class KoXMLDocument(private val root: KoXMLNode, private val attributes: KoXMLAt
 class KoXMLGroup(tag: String, attributes: KoXMLAttributeList, children: ArrayList<KoXMLNode>): KoXMLNode("Group", tag, attributes, children)
 // NOTE: would it be best to convert multiple KoXMLValue objects with shared tag into a list of values?
 
-abstract class KoXMLNode(private val type: String, protected val tag: String, private val attributes: KoXMLAttributeList? = null, private val children: ArrayList<KoXMLNode>? = null)
+abstract class KoXMLNode(private val type: String, protected val tag: String, protected val attributes: KoXMLAttributeList? = null, private val children: ArrayList<KoXMLNode>? = null)
 {
 
     fun debug(indent: Int, lastItem: Boolean = true, parentLastItem: Boolean = true): List<String>
@@ -84,7 +84,7 @@ abstract class KoXMLNode(private val type: String, protected val tag: String, pr
 
 class KoXMLSingle(tag: String, attributes: KoXMLAttributeList): KoXMLNode("Single", tag, attributes)
 
-class KoXMLValue(tag: String, private val value: String): KoXMLNode("Value", tag)
+class KoXMLValue(tag: String, attributes: KoXMLAttributeList, private val value: String): KoXMLNode("Value", tag, attributes)
 {
 
     fun getValue() = value
@@ -93,6 +93,7 @@ class KoXMLValue(tag: String, private val value: String): KoXMLNode("Value", tag
         add("Value")
         add("<$tag>")
         add(value)
+        if(attributes != null) add(attributes.toString())
     }.joinToString(" ")
 
 }

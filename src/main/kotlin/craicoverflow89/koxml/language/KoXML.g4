@@ -23,22 +23,24 @@ nodeGroup returns [KoXMLGroup result]
                 nodeSingle {children.add($nodeSingle.result);}
             |
                 nodeValue {children.add($nodeValue.result);}
+            |
+                comment
             )
         )*
-        '</' tag2 = string '>'
+        '<' '/' tag2 = string '>'
         {$result = new KoXMLGroup($tag1.text, $attributeList.result, children);}
     ;
 
 nodeSingle returns [KoXMLSingle result]
-    :   '<' tag = string attributeList '/>'
+    :   '<' tag = string attributeList '/' '>'
         {$result = new KoXMLSingle($tag.text, $attributeList.result);}
     ;
 
 nodeValue returns [KoXMLValue result]
-    :   '<' tag1 = string '>'
-        value = string
-        '</' tag2 = string '>'
-        {$result = new KoXMLValue($tag1.text, $value.text);}
+    :   '<' tag1 = string attributeList '>'
+        value = stringValue
+        '<' '/' tag2 = string '>'
+        {$result = new KoXMLValue($tag1.text, $attributeList.result, $value.text);}
     ;
 
 attributeList returns [KoXMLAttributeList result]
@@ -50,7 +52,7 @@ attributeList returns [KoXMLAttributeList result]
     ;
 
 attribute returns [KoXMLAttribute result]
-    :   key = string '="' value = string '"'
+    :   key = string '=' '"' value = stringValue '"'
         {$result = new KoXMLAttribute($key.text, $value.text);}
     ;
 
@@ -58,7 +60,15 @@ string
     :   CHAR+
     ;
 
+stringValue
+    :   (string | ' ' | '-' | '!' | '|')*
+    ;
+
+comment
+    :   '<!--' (string | ' ' | '<' | '>' | '/' | '=' | '"' | '|')+ '-->'
+    ;
+
 // Lexer Rules
 
-CHAR: [A-Za-z0-9.-]+;
+CHAR: [A-Za-z0-9.]+;
 WHITESPACE: [ \t\r\n]+ -> skip;
