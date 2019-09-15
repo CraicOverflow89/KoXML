@@ -5,7 +5,7 @@ import craicoverflow89.koxml.language.KoXMLParser
 import org.antlr.v4.runtime.ANTLRInputStream
 import org.antlr.v4.runtime.CommonTokenStream
 
-fun main (args: Array<String>)
+fun main(args: Array<String>)
 {
     // Input File
     val input = object {}.javaClass.getResource("/input.xml").readText()
