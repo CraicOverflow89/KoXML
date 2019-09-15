@@ -3,6 +3,7 @@ grammar KoXML;
 @header
 {
     import craicoverflow89.koxml.language.constructs.*;
+    import java.util.ArrayList;
 }
 
 document returns [KoXMLDocument result]
