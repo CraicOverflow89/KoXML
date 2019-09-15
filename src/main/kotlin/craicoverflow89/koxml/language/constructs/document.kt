@@ -4,6 +4,7 @@ class KoXMLAttribute(private val key: String, private val value: String)
 {
 
     override fun toString() = "$key: $value"
+
 }
 
 class KoXMLAttributeList(private val list: ArrayList<KoXMLAttribute>)
