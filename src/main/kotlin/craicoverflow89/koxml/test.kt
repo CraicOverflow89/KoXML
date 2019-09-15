@@ -15,11 +15,6 @@ fun main (args: Array<String>)
     val parser = KoXMLParser(CommonTokenStream(lexer))
     val document = parser.document().result
 
-    // Render Output
-    println(document)
-    println(document.getRoot())
-    document.getRoot().getChildren()?.forEach {
-        println(" - $it")
-        it.getChildren()?.forEach {println("    - $it")}
-    }
+    // Debug Output
+    document.debug()
 }

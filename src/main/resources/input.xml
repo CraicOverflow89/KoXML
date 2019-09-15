@@ -3,5 +3,20 @@
 <proto version="1" language="xml">
     <unit name="James" age="30">
         <dbid>1</dbid>
+        <flag>human</flag>
+        <flag>software</flag>
+        <language name="Kotlin">
+            <dbid>101</dbid>
+        </language>
+    </unit>
+    <unit name="Connor" age="27">
+        <dbid>2</dbid>
+        <flag>human</flag>
+        <flag>testing</flag>
+    </unit>
+    <unit name="Sam" age="34">
+        <dbid>3</dbid>
+        <flag>human</flag>
+        <flag>testing</flag>
     </unit>
 </proto>
