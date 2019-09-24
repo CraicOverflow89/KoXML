@@ -5,7 +5,7 @@ Lightweight XML parser written in Kotlin.
 
 ### Usage
 
-You can parse a `File` (or simply a `String`, using `KoXML.parseText`) using the `KoXML` class.
+You can parse a `File` using the `KoXML` class (or simply a `String`, using the `parseText` method).
 
 ```
 import java.io.File
