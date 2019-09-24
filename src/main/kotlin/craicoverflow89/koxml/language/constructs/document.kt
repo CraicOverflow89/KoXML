@@ -1,7 +1,6 @@
 package craicoverflow89.koxml.language.constructs
 
-class KoXMLAttribute(private val key: String, private val value: String)
-{
+class KoXMLAttribute(private val key: String, private val value: String) {
 
     fun getKey() = key
 
@@ -11,8 +10,7 @@ class KoXMLAttribute(private val key: String, private val value: String)
 
 }
 
-class KoXMLAttributeList(private val list: ArrayList<KoXMLAttribute>)
-{
+class KoXMLAttributeList(private val list: ArrayList<KoXMLAttribute>) {
 
     fun toMap() = HashMap<String, String>().apply {
         list.forEach {this[it.getKey()] = it.getValue()}
@@ -22,8 +20,7 @@ class KoXMLAttributeList(private val list: ArrayList<KoXMLAttribute>)
 
 }
 
-class KoXMLDocument(private val root: KoXMLNode, private val attributes: KoXMLAttributeList)
-{
+class KoXMLDocument(private val root: KoXMLNode, private val attributes: KoXMLAttributeList) {
 
     fun debug() = println(this.let {document -> ArrayList<String>().apply {
         add(document.toString())
@@ -41,11 +38,10 @@ class KoXMLDocument(private val root: KoXMLNode, private val attributes: KoXMLAt
 class KoXMLGroup(tag: String, attributes: KoXMLAttributeList, children: ArrayList<KoXMLNode>): KoXMLNode("Group", tag, attributes, children)
 // NOTE: would it be best to convert multiple KoXMLValue objects with shared tag into a list of values?
 
-abstract class KoXMLNode(private val type: String, protected val tag: String, protected val attributes: KoXMLAttributeList? = null, private val children: ArrayList<KoXMLNode>? = null)
-{
+abstract class KoXMLNode(private val type: String, protected val tag: String, protected val attributes: KoXMLAttributeList? = null, private val children: ArrayList<KoXMLNode>? = null) {
 
-    fun debug(indent: Int, lastItem: Boolean = true, parentLastItem: Boolean = true): List<String>
-    {
+    fun debug(indent: Int, lastItem: Boolean = true, parentLastItem: Boolean = true): List<String> {
+
         // Define Reuslt
         val result = ArrayList<String>()
 
@@ -60,8 +56,7 @@ abstract class KoXMLNode(private val type: String, protected val tag: String, pr
         //       we actually need to use something like List<Boolean> for each level of nodes
 
         // Iterate Children
-        if(children != null) for(child in children.withIndex())
-        {
+        if(children != null) for(child in children.withIndex()) {
             result.addAll(child.value.debug(indent + 1, child.index >= children.size - 1, lastItem))
         }
 
@@ -84,8 +79,7 @@ abstract class KoXMLNode(private val type: String, protected val tag: String, pr
 
 class KoXMLSingle(tag: String, attributes: KoXMLAttributeList): KoXMLNode("Single", tag, attributes)
 
-class KoXMLValue(tag: String, attributes: KoXMLAttributeList, private val value: String): KoXMLNode("Value", tag, attributes)
-{
+class KoXMLValue(tag: String, attributes: KoXMLAttributeList, private val value: String): KoXMLNode("Value", tag, attributes) {
 
     fun getValue() = value
 
