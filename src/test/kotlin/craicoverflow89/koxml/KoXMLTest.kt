@@ -12,17 +12,43 @@ class MainTest {
         // Mock Input
         KoXML.parseText(object {}.javaClass.getResource("/test1.xml").readText()).apply {
 
-            // Contains Version
-            Assert.assertTrue(this.getAttributes().contains("version"))
+            // Test Attributes
+            this.getAttributes().apply {
 
-            // Validate Version
-            Assert.assertEquals(this.getAttributes()["version"], "1.0")
+                // Contains Version
+                Assert.assertTrue(contains("version"))
 
-            // Contains Encoding
-            Assert.assertTrue(this.getAttributes().contains("encoding"))
+                // Validate Version
+                Assert.assertEquals(this["version"], "1.0")
 
-            // Validate Encoding
-            Assert.assertEquals(this.getAttributes()["encoding"], "UTF-8")
+                // Contains Encoding
+                Assert.assertTrue(contains("encoding"))
+
+                // Validate Encoding
+                Assert.assertEquals(this["encoding"], "UTF-8")
+            }
+
+            // Test Groups
+            this.getRoot().apply {
+
+                // Test Attributes
+                this.getAttributes().apply {
+
+                    // Contains Version
+                    Assert.assertTrue(contains("version"))
+
+                    // Validate Version
+                    Assert.assertEquals(this["version"], "1")
+                }
+
+                // Test Groups
+                this.getChildren().apply {
+
+                    // Validate Size
+                    //Assert.assertEquals(this.size, 2)
+                    // NOTE: discovered an issue whereby children should at least return an empty ArrayList<KoXMLNode> but could be null
+                }
+            }
         }
     }
 

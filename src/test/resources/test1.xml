@@ -11,4 +11,10 @@
             <param name="Snores"></param>
         </action>
     </person>
+    <person id="1" name="Amelia">
+        <dbid>2</dbid>
+        <language type="Dynamic">JavaScript</language>
+        <colour eyes="green" hair="blonde"></colour>
+        <flag>IsVirtual</flag>
+    </person>
 </object>
