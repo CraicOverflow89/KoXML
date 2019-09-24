@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<object version="1">
+    <person id="0" name="James">
+        <dbid>1</dbid>
+        <language type="Typed">Kotlin</language>
+        <colour eyes="brown" hair="brown"></colour>
+        <flag>IsHuman</flag>
+        <flag>IsEnglish</flag>
+        <action name="Sleep">
+            <param name="Snores"></param>
+        </action>
+    </person>
+</object>
