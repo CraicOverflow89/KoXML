@@ -3,6 +3,8 @@ KoXML Project
 
 [![HitCount](http://hits.dwyl.io/CraicOverflow89/KoXML.svg)](http://hits.dwyl.io/CraicOverflow89/KoXML)
 
+[![Known Vulnerabilities](https://snyk.io//test/github/CraicOverflow89/KoXML/badge.svg?targetFile=build.gradle)](https://snyk.io//test/github/CraicOverflow89/KoXML?targetFile=build.gradle)
+
 Lightweight XML parser written in Kotlin.
 
 ### Usage
