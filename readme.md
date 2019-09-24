@@ -1,6 +1,8 @@
 KoXML Project
 =============
 
+[![HitCount](http://hits.dwyl.io/CraicOverflow89/KoXML.svg)](http://hits.dwyl.io/CraicOverflow89/KoXML)
+
 Lightweight XML parser written in Kotlin.
 
 ### Usage
