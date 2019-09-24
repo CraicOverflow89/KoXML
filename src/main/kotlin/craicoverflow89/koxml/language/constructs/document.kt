@@ -1,17 +1,43 @@
 package craicoverflow89.koxml.language.constructs
 
+/**
+ * A key/value pair of attributes defined in the XML document
+ *
+ * @property key the name of the attribute
+ * @property value the value of the attribute
+ */
 class KoXMLAttribute(private val key: String, private val value: String) {
 
+    /**
+     * Gets the key of this attribute
+     *
+     * @return the key of this attribute
+     */
     fun getKey() = key
 
+    /**
+     * Gets the value of this attribute
+     *
+     * @return the value of this attribute
+     */
     fun getValue() = value
 
     override fun toString() = "$key: $value"
 
 }
 
+/**
+ * A list of key/value pairs defined in the XML document
+ *
+ * @property list a list of KoXMLAttribute instances
+ */
 class KoXMLAttributeList(private val list: ArrayList<KoXMLAttribute>) {
 
+    /**
+     * Builds a map of attributes for this attribute list
+     *
+     * @return a HashMap<String, String> representation of data from the XML document
+     */
     fun toMap() = HashMap<String, String>().apply {
         list.forEach {this[it.getKey()] = it.getValue()}
     }
@@ -20,6 +46,12 @@ class KoXMLAttributeList(private val list: ArrayList<KoXMLAttribute>) {
 
 }
 
+/**
+ * The entire parsed XML document
+ *
+ * @property root the root element of the XML document
+ * @property attributes a list of attributes defined at the top of the XML document
+ */
 class KoXMLDocument(private val root: KoXMLNode, private val attributes: KoXMLAttributeList) {
 
     fun debug() = println(this.let {document -> ArrayList<String>().apply {
