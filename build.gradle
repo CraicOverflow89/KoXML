@@ -2,6 +2,8 @@ plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.3.11'
 }
 
+implementation("com.natpryce:hamkrest:1.7.0.0")
+
 group 'KoXML'
 version '1.0-SNAPSHOT'
 
