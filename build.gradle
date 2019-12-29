@@ -5,7 +5,7 @@ plugins {
 implementation("com.natpryce:hamkrest:1.7.0.0")
 
 group 'KoXML'
-version '1.0-SNAPSHOT'
+version '1.0.0'
 
 apply plugin: 'antlr'
 
