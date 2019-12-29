@@ -1,13 +1,12 @@
 package craicoverflow89.koxml
 
-import org.hamcrest.CoreMatchers
 import org.junit.Assert
 import org.junit.Test
 
 class MainTest {
 
     @Test
-    fun test1() {
+    fun parseText() {
 
         // Mock Input
         KoXML.parseText(object {}.javaClass.getResource("/test1.xml").readText()).apply {

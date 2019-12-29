@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<proto version="4">
+    <unit id="0" name="Hawk">
+        <dbid>660</dbid>
+        <displaynameid>18794</displaynameid>
+        <icon>World Hawk Icon 64</icon>
+        <initialhitpoints>20.0000</initialhitpoints>
+        <maxhitpoints>20.0000</maxhitpoints>
+        <los>12.0000</los>
+        <portraiticon>World Hawk Icon 64</portraiticon>
+        <obstructionradiusx>0.0500</obstructionradiusx>
+        <obstructionradiusz>0.0500</obstructionradiusz>
+        <maxvelocity>4.8000</maxvelocity>
+        <movementtype>air</movementtype>
+        <turnrate>18.0000</turnrate>
+        <bountyfactor resourcetype="Favor">1.0000</bountyfactor>
+        <minimapcolor red="0.5400" blue="0.0000" green="0.3100"></minimapcolor>
+        <heightbob period="6.0000" magnitude="2.0000"></heightbob>
+        <unittype>LogicalTypeSuperPredatorsAutoAttack</unittype>
+        <unittype>LogicalTypeCanBeHealed</unittype>
+        <unittype>LogicalTypeValidTraitorsTarget</unittype>
+        <unittype>LogicalTypeTornadoAttack</unittype>
+        <unittype>LogicalTypeSuperPredatorsAttack</unittype>
+        <unittype>LogicalTypeValidBoltTarget</unittype>
+        <unittype>LogicalTypeValidShiftingSandsTarget</unittype>
+        <unittype>LogicalTypeUnitsNotBuildings</unittype>
+        <unittype>LogicalTypeRangedUnitsAttack</unittype>
+        <unittype>LogicalTypeTartarianGateValidOverlapPlacement</unittype>
+        <unittype>LogicalTypeAffectedByHeroize</unittype>
+        <unittype>NatureClass</unittype>
+        <unittype>Nature</unittype>
+        <unittype>Unit</unittype>
+        <unittype>FlyingUnit</unittype>
+        <flag>DoNotShowOnMiniMap</flag>
+        <flag>NoTieToGround</flag>
+        <flag>DontRotateObstruction</flag>
+        <flag>NonAutoFormedUnit</flag>
+        <flag>ForceToGaia</flag>
+        <flag>FlyingUnit</flag>
+        <flag>VisibleUnderFog</flag>
+        <flag>NotSelectable</flag>
+        <flag>NonCollideable</flag>
+        <action name="Move">
+            <param name="Persistent"></param>
+        </action>
+    </unit>
+    <unit id="1" name="Palm Stump">
+        <dbid>662</dbid>
+        <displaynameid>19448</displaynameid>
+        <los>0.0000</los>
+        <obstructionradiusx>0.5000</obstructionradiusx>
+        <obstructionradiusz>0.5000</obstructionradiusz>
+        <maxvelocity>0.0000</maxvelocity>
+        <movementtype>land</movementtype>
+        <bountyfactor resourcetype="Favor">1.0000</bountyfactor>
+        <unittype>NatureClass</unittype>
+        <flag>StartOnNoUpdate</flag>
+        <flag>DoNotShowOnMiniMap</flag>
+        <flag>Immoveable</flag>
+        <flag>NoBloodOnDeath</flag>
+        <flag>NoHPBar</flag>
+        <flag>NonAutoFormedUnit</flag>
+        <flag>NonCollideable</flag>
+        <flag>NotSearchable</flag>
+        <flag>NotSelectable</flag>
+        <flag>DestroyUnderBuilding</flag>
+        <flag>VisibleUnderFogOnlyAfterSeen</flag>
+        <flag>DontRotateObstruction</flag>
+        <flag>NoIdleActions</flag>
+    </unit>
+</proto>
